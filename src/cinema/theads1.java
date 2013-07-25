@@ -11,6 +11,8 @@ public class theads1 extends Thread implements Runnable{
     
     public ImageIcon cat16 = new ImageIcon(getClass().getResource("1.jpg"));
     public ImageIcon cat17 = new ImageIcon(getClass().getResource("2.jpg"));
+    public ImageIcon cat18 = new ImageIcon(getClass().getResource("3.jpg"));
+    public ImageIcon cat19 = new ImageIcon(getClass().getResource("4.jpg"));
     
     private static ArrayList imageList = new ArrayList(); 
 
@@ -20,6 +22,8 @@ public class theads1 extends Thread implements Runnable{
         this.l = l;
         imageList.add(cat16);
         imageList.add(cat17);
+        imageList.add(cat18);
+        imageList.add(cat19);
     }
     
     public void run() {

@@ -3,7 +3,7 @@ package cinema;
 
 /**
  *
- * @author marcelo b.
+ * @author marcelo
  */
 public class Cinema {
 
@@ -11,7 +11,7 @@ public class Cinema {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        // TODO code application logic here
         CinemaInterface c = new CinemaInterface();
         c.setVisible(true);
     }
