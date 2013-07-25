@@ -13,7 +13,7 @@ public class CinemaInterface extends javax.swing.JFrame {
      */
     public CinemaInterface() {
         initComponents();
-        new theads1(jLabel13).start();
+        new Theads(jLabel13).start();
     }
 
     @SuppressWarnings("unchecked")
@@ -32,6 +32,8 @@ public class CinemaInterface extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         campocodigosala = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        verificasesalapodesercriada = new javax.swing.JButton();
+        conferir = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -70,7 +72,7 @@ public class CinemaInterface extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Cambria Math", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cinema/capa.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lorena\\Documents\\NetBeansProjects\\cinema\\src\\cinema\\capa.png")); // NOI18N
         jLabel1.setText("Cineminions");
 
         jTabbedPane1.setBackground(new java.awt.Color(200, 200, 200));
@@ -86,6 +88,7 @@ public class CinemaInterface extends javax.swing.JFrame {
 
         BotaoSalvaSala.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         BotaoSalvaSala.setText("Criar Sala");
+        BotaoSalvaSala.setEnabled(false);
         BotaoSalvaSala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoSalvaSalaActionPerformed(evt);
@@ -100,7 +103,24 @@ public class CinemaInterface extends javax.swing.JFrame {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jTable3, org.jdesktop.beansbinding.ELProperty.create("${selectedElement!=null}"), campocodigosala, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cinema/minio.jpg"))); // NOI18N
+        campocodigosala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campocodigosalaActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lorena\\Desktop\\minions\\minio.jpg")); // NOI18N
+
+        verificasesalapodesercriada.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        verificasesalapodesercriada.setText("Verificar Sala");
+        verificasesalapodesercriada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verificasesalapodesercriadaActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Cambria Math", 0, 12)); // NOI18N
+        jLabel15.setText("Informe o código para verificação:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,23 +129,26 @@ public class CinemaInterface extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(BotaoSalvaSala))
+                        .addGap(26, 26, 26)
+                        .addComponent(CampoCapacideDaSala, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel10))
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addComponent(conferir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(verificasesalapodesercriada))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(campocodigosala, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(CampoCapacideDaSala, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(62, 62, 62)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(campocodigosala, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(BotaoSalvaSala))
+                            .addComponent(jLabel2))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addGap(198, 198, 198))
         );
@@ -134,23 +157,26 @@ public class CinemaInterface extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
+                        .addGap(44, 44, 44)
                         .addComponent(jLabel14))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(BotaoSalvaSala)
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(campocodigosala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(CampoCapacideDaSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(66, Short.MAX_VALUE))
+                            .addComponent(conferir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(verificasesalapodesercriada)
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campocodigosala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotaoSalvaSala))
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(CampoCapacideDaSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Insere Sala", jPanel1);
@@ -300,7 +326,7 @@ public class CinemaInterface extends javax.swing.JFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(botaoExcluirSala))
                             .addComponent(botaoCriarSessao))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(53, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -350,7 +376,7 @@ public class CinemaInterface extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CampoIngressosVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(33, Short.MAX_VALUE))))
+                        .addContainerGap(27, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("Insere Sessão", jPanel2);
@@ -412,7 +438,7 @@ public class CinemaInterface extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 247, Short.MAX_VALUE))
+                                .addGap(0, 290, Short.MAX_VALUE))
                             .addComponent(jScrollPane1)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -462,7 +488,7 @@ public class CinemaInterface extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -493,13 +519,22 @@ public JLabel getjLabel13() {
     private void BotaoSalvaSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvaSalaActionPerformed
         salas s = new salas();
         listSalas.add(s);
-
         int nlinhas = jTable3.getRowCount() - 1;
         jTable3.setRowSelectionInterval(nlinhas, nlinhas);
-
         campocodigosala.requestFocus();
+        BotaoSalvaSala.setEnabled(false);
+        campocodigosala.setText(conferir.getText());
+        campocodigosala.setEditable(false);
     }//GEN-LAST:event_BotaoSalvaSalaActionPerformed
 
+    public boolean confereSala(){
+        for (salas x : listSalas) {
+                    if (x.getCodigo() == (Integer.parseInt(conferir.getText()))) {
+                      return false;
+                    }
+         }
+        return true;
+    }
     private void botaoExcluirSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirSalaActionPerformed
         int selecionado = jTable3.getSelectedRow();
         listSalas.remove(selecionado);
@@ -555,6 +590,19 @@ public JLabel getjLabel13() {
     private void CampoHorarioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoHorarioInicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoHorarioInicioActionPerformed
+
+    private void verificasesalapodesercriadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificasesalapodesercriadaActionPerformed
+        // TODO add your handling code here:
+        if(confereSala() == false){
+                JOptionPane.showMessageDialog(this, "Sala já existente!");
+            }else{
+                 BotaoSalvaSala.setEnabled(true);
+            }
+    }//GEN-LAST:event_verificasesalapodesercriadaActionPerformed
+
+    private void campocodigosalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campocodigosalaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campocodigosalaActionPerformed
     public boolean verificaSala(){
         int i=0;
         for (salas s : listSalas) {
@@ -647,6 +695,7 @@ public JLabel getjLabel13() {
     private javax.swing.JButton botaoExcluirSessao;
     private javax.swing.JButton botaoVerificaSala;
     private javax.swing.JTextField campocodigosala;
+    private javax.swing.JTextField conferir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -673,6 +722,7 @@ public JLabel getjLabel13() {
     private javax.swing.JLabel label;
     private java.util.List<salas> listSalas;
     private java.util.List<Sessao> listsessao;
+    private javax.swing.JButton verificasesalapodesercriada;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
