@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cinema;
+package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 /**
  *
- * @author marcelo
+ * @author Marcelo Moro Brondani e Lorena Dutra da Costa
  */
 public class salas {
     

@@ -1,17 +1,12 @@
 package cinema;
 
-import java.awt.Label;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import util.Theads;
+import model.Sessao;
+import model.salas;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JLabel;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class CinemaInterface extends javax.swing.JFrame {
@@ -90,7 +85,7 @@ public class CinemaInterface extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Cambria Math", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cinema/capa.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/capa.png"))); // NOI18N
         jLabel1.setText("Cineminions");
 
         jTabbedPane1.setBackground(new java.awt.Color(200, 200, 200));
@@ -127,7 +122,7 @@ public class CinemaInterface extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cinema/minio.jpg"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/minio.jpg"))); // NOI18N
 
         verificasesalapodesercriada.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         verificasesalapodesercriada.setText("Verificar Sala");
@@ -401,7 +396,7 @@ public class CinemaInterface extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CampoIngressosVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(80, Short.MAX_VALUE))))
+                        .addContainerGap(86, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("Insere Sessão", jPanel2);
@@ -639,7 +634,6 @@ public class CinemaInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoExcluirSalaActionPerformed
 
     private void botaoCriarSessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarSessaoActionPerformed
-
         Sessao c = new Sessao();
         listsessao.add(c);
         c.setNumeroSala(Integer.parseInt(campocodigosala.getText()));
@@ -648,9 +642,8 @@ public class CinemaInterface extends javax.swing.JFrame {
         CampoNomeFilme.requestFocus();
         limpaCampo();
         botaoCriarSessao.setEnabled(false);
-        
-
     }//GEN-LAST:event_botaoCriarSessaoActionPerformed
+
     public void limpaCampo() {
         CampoNumeroSala.setText("");
         CampoNomeFilme.setText("");
