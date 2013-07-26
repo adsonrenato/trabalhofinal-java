@@ -1,5 +1,8 @@
 
-package cinema;
+/*
+ * autor: Marcelo Moro Brondani e Lorena Dutra da Costa
+ */
+package util;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -7,10 +10,10 @@ import javax.swing.JLabel;
 
 public class Theads extends Thread implements Runnable{
     
-    public ImageIcon img1 = new ImageIcon(getClass().getResource("1.jpg"));
-    public ImageIcon img2 = new ImageIcon(getClass().getResource("2.jpg"));
-    public ImageIcon img3 = new ImageIcon(getClass().getResource("3.jpg"));
-    public ImageIcon img4 = new ImageIcon(getClass().getResource("4.jpg"));
+    public ImageIcon img1 = new ImageIcon(getClass().getResource("../imagens/1.jpg"));
+    public ImageIcon img2 = new ImageIcon(getClass().getResource("../imagens/2.jpg"));
+    public ImageIcon img3 = new ImageIcon(getClass().getResource("../imagens/3.jpg"));
+    public ImageIcon img4 = new ImageIcon(getClass().getResource("../imagens/4.jpg"));
     
     private static ArrayList imageList = new ArrayList(); 
 

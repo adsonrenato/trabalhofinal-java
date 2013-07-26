@@ -6,7 +6,7 @@ package cinema;
 
 /**
  *
- * @author marcelo
+ * @author Marcelo Moro Brondani e Lorena Dutra da Costa
  */
 public class Cinema {
 
