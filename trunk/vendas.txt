@@ -1,0 +1,5 @@
+Relatorio de vendas
+
+Sala: 10 Capacidade Total:100 Ingressos vendidos:1
+Sala: 20 Capacidade Total:200 Ingressos vendidos:11
+Sala: 30 Capacidade Total:300 Ingressos vendidos:101

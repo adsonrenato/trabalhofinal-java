@@ -17,5 +17,6 @@ public class Cinema {
         // TODO code application logic here
         CinemaInterface c = new CinemaInterface();
         c.setVisible(true);
+       
     }
 }
